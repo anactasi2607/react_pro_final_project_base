@@ -1,14 +1,27 @@
+import { FormEvent } from 'react';
 import s from './ProfilePage.module.css';
 import classNames from 'classnames';
 import { ButtonBack } from '../../../shared/ui/ButtonBack';
 import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
+import { Button } from '../../../shared/ui/Button';
+
+const FORM_ID_FIRST = 'form-id-first';
+const FORM_ID_SECOND = 'form-id-second';
 
 export const ProfilePage = WithProtection(() => {
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault();
+		console.log('Изменения сохранены');
+	};
+
 	return (
 		<>
 			<ButtonBack />
 			<h1 className={s['form__title']}>Мои данные</h1>
-			<form className={classNames(s['form'], s['form'])}>
+			<form
+				className={classNames(s['form'], s['form'])}
+				id={FORM_ID_FIRST}
+				onSubmit={handleSubmit}>
 				<div className={s['form__row']}>
 					<label className={s['form__label']} htmlFor='name'>
 						{''}
@@ -53,19 +66,20 @@ export const ProfilePage = WithProtection(() => {
 						/>
 					</label>
 				</div>
-
-				<button
+				<Button
+					className={s['form__btn']}
+					form={FORM_ID_FIRST}
 					type='submit'
-					className={classNames(
-						s['form__btn'],
-						s['secondary'],
-						s['maxContent']
-					)}>
+					variant='secondary'
+					size='medium'>
 					Сохранить
-				</button>
+				</Button>
 			</form>
 			<h2 className={s['form__title']}>Изменить пароль</h2>
-			<form className={classNames(s['form'], s['form'])}>
+			<form
+				className={classNames(s['form'], s['form'])}
+				id={FORM_ID_SECOND}
+				onSubmit={handleSubmit}>
 				<div className={classNames(s['form__row'], s['form__row_min'])}>
 					<label className={s['form__label']}>
 						{''}
@@ -78,15 +92,14 @@ export const ProfilePage = WithProtection(() => {
 						/>
 					</label>
 				</div>
-				<button
+				<Button
+					className={s['form__btn']}
+					form={FORM_ID_SECOND}
 					type='submit'
-					className={classNames(
-						s['form__btn'],
-						s['secondary'],
-						s['maxContent']
-					)}>
+					variant='secondary'
+					size='medium'>
 					Сохранить
-				</button>
+				</Button>
 			</form>
 		</>
 	);

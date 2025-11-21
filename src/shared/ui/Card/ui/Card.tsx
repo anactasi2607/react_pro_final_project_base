@@ -7,6 +7,7 @@ import { useAppSelector } from '../../../store/utils';
 import { cartSelectors } from '../../../store/slices/cart';
 import { useAddToCart } from '../../../hooks/useAddToCart';
 import { CartCounter } from '../../CartCounter';
+import { Button } from '../../Button/ui/Button';
 
 type CardProps = {
 	product: Product;
@@ -54,16 +55,13 @@ export const Card = ({ product }: CardProps) => {
 			{isProductInCart ? (
 				<CartCounter productId={id} />
 			) : (
-				<button
-					onClick={() => addProductToCart({ ...product, count: 1 })}
+				<Button
+					variant='primary'
+					size='small'
 					disabled={isProductInCart}
-					className={classNames(
-						s['card__cart'],
-						s['card__btn'],
-						s['card__btn_type_primary']
-					)}>
+					onClick={() => addProductToCart({ ...product, count: 1 })}>
 					В корзину
-				</button>
+				</Button>
 			)}
 		</article>
 	);
