@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { ButtonBack } from '../../../shared/ui/ButtonBack';
 import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
 import { Button } from '../../../shared/ui/Button';
+import { Input } from '../../../shared/ui/Input';
 
 const FORM_ID_FIRST = 'form-id-first';
 const FORM_ID_SECOND = 'form-id-second';
@@ -23,48 +24,27 @@ export const ProfilePage = WithProtection(() => {
 				id={FORM_ID_FIRST}
 				onSubmit={handleSubmit}>
 				<div className={s['form__row']}>
-					<label className={s['form__label']} htmlFor='name'>
-						{''}
-						<input
-							className={s['input']}
-							name='name'
-							id='name'
-							type='text'
-							placeholder='Введите ваше имя'
-						/>
-					</label>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='about'
-							id='about'
-							type='text'
-							placeholder='Описание профессии'
-						/>
-					</label>
+					<Input
+						name='name'
+						id='name'
+						type='text'
+						placeholder='Введите ваше имя'
+					/>
+					<Input
+						name='about'
+						id='about'
+						type='text'
+						placeholder='Описание профессии'
+					/>
 				</div>
 				<div className={s['form__row']}>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='avatar'
-							id='avatar'
-							type='url'
-							placeholder='Введите ссылку на аватарку'
-						/>
-					</label>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='email'
-							id='email'
-							type='text'
-							placeholder='email'
-						/>
-					</label>
+					<Input
+						name='avatar'
+						id='avatar'
+						type='url'
+						placeholder='Введите ссылку на аватарку'
+					/>
+					<Input name='email' id='email' type='text' placeholder='email' />
 				</div>
 				<Button
 					className={s['form__btn']}
@@ -81,16 +61,12 @@ export const ProfilePage = WithProtection(() => {
 				id={FORM_ID_SECOND}
 				onSubmit={handleSubmit}>
 				<div className={classNames(s['form__row'], s['form__row_min'])}>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='password'
-							id='password'
-							type='password'
-							placeholder='Пароль'
-						/>
-					</label>
+					<Input
+						name='password'
+						id='password'
+						type='password'
+						placeholder='Пароль'
+					/>
 				</div>
 				<Button
 					className={s['form__btn']}
