@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { Box, Link, TextField } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -21,6 +21,7 @@ export const SignIn: FC = () => {
 	// Из хука useSignUpMutation (был получен путем автогенерации)
 	// достаем функцию, которая будет (регистрировать пользователя) делать POST-запрос к нашем серверу)
 	const [signInRequestFn] = useSignInMutation();
+	const emailInputRef = useRef<HTMLInputElement>(null);
 	// инициализируем react-hook-form
 	const {
 		// control понадобиться, чтобы подружить react-hook-form и компоненты из MUI
@@ -71,6 +72,12 @@ export const SignIn: FC = () => {
 		}
 	};
 
+	useEffect(() => {
+		if (emailInputRef.current) {
+			emailInputRef.current.focus();
+		}
+	}, []);
+
 	return (
 		<Box
 			component='form'
@@ -91,6 +98,7 @@ export const SignIn: FC = () => {
 						fullWidth
 						required
 						autoComplete='email'
+						inputRef={emailInputRef}
 						error={!!errors.email?.message}
 						helperText={errors.email?.message}
 						{...field}

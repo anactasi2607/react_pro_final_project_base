@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Box, Link, TextField } from '@mui/material';
@@ -19,6 +19,7 @@ export const SignUp: FC = () => {
 	// Из хука useSignUpMutation (был получен путем автогенерации)
 	// достаем функцию, которая будет (регистрировать пользователя) делать POST-запрос к нашем серверу)
 	const [signUpRequestFn] = useSignUpMutation();
+	const emailInputRef = useRef<HTMLInputElement>(null);
 	// инициализируем react-hook-form
 	const {
 		// control понадобиться, чтобы подружить react-hook-form и компоненты из MUI
@@ -65,6 +66,12 @@ export const SignUp: FC = () => {
 		}
 	};
 
+	useEffect(() => {
+		if (emailInputRef.current) {
+			emailInputRef.current.focus();
+		}
+	}, []);
+
 	return (
 		<Box
 			component='form'
@@ -85,6 +92,7 @@ export const SignUp: FC = () => {
 						fullWidth
 						required
 						autoComplete='email'
+						inputRef={emailInputRef}
 						error={!!errors.email?.message}
 						helperText={errors.email?.message}
 						{...field}
