@@ -1,6 +1,6 @@
-import s from '../../CartPage.module.css';
+import { Button } from '../../../shared/ui/Button';
+import s from './CartAmount.module.css';
 import classNames from 'classnames';
-import { Button } from '../../../../../shared/ui/Button';
 
 type CartAmountProps = {
 	products: CartProduct[];
