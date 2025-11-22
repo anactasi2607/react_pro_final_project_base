@@ -1,11 +1,13 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Button } from '../../../shared/ui/Button';
+import { Modal } from '../../../shared/ui/Modal';
 import s from './CartAmount.module.css';
 import classNames from 'classnames';
 
 type CartAmountProps = {
 	products: CartProduct[];
 };
+
 export const CartAmount = ({ products }: CartAmountProps) => {
 	const allPrice = useMemo(
 		() => products.reduce((acc, p) => p.price * p.count + acc, 0),
@@ -16,9 +18,20 @@ export const CartAmount = ({ products }: CartAmountProps) => {
 		[products]
 	);
 
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	const handleSubmitCart = () => {
+		setIsModalOpen(true);
+	};
+
+	const handleCloseModal = () => {
+		setIsModalOpen(false);
+	};
+
+	const handleConfirmOrder = () => {
 		const order = products.map((p) => ({ id: p.id, count: p.count }));
 		console.log('Отправка заказа на сервер: ', JSON.stringify(order, null, 2));
+		setIsModalOpen(false);
 	};
 
 	return (
@@ -57,6 +70,16 @@ export const CartAmount = ({ products }: CartAmountProps) => {
 			<Button variant='primary' size='small' onClick={handleSubmitCart}>
 				Оформить заказ
 			</Button>
+			<Modal
+				isOpen={isModalOpen}
+				confirmText='Да, оформить'
+				onClose={handleCloseModal}
+				onConfirm={handleConfirmOrder}>
+				<>
+					<h2>Подтверждение заказа</h2>
+					<p>Вы уверены, что хотите оформить заказ?</p>
+				</>
+			</Modal>
 		</div>
 	);
 };
