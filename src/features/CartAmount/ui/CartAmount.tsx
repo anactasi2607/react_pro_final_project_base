@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Button } from '../../../shared/ui/Button';
 import s from './CartAmount.module.css';
 import classNames from 'classnames';
@@ -6,10 +7,13 @@ type CartAmountProps = {
 	products: CartProduct[];
 };
 export const CartAmount = ({ products }: CartAmountProps) => {
-	const allPrice = products.reduce((acc, p) => p.price * p.count + acc, 0);
-	const allDiscount = products.reduce(
-		(acc, p) => p.discount * p.count + acc,
-		0
+	const allPrice = useMemo(
+		() => products.reduce((acc, p) => p.price * p.count + acc, 0),
+		[products]
+	);
+	const allDiscount = useMemo(
+		() => products.reduce((acc, p) => p.discount * p.count + acc, 0),
+		[products]
 	);
 
 	const handleSubmitCart = () => {
