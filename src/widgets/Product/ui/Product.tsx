@@ -3,7 +3,7 @@ import { ButtonBack } from '../../../shared/ui/ButtonBack';
 import { ReviewList } from '../../ReviewList/ui/ReviewList';
 import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
 import { useGetProductQuery } from '../../../shared/store/api/productsApi';
-import { ProductDetail } from '../../../features/ProductDetail/ui/Product';
+import { Detail } from '../../../entities/Product/ui/Detail/ui/Detail';
 
 export const Product = WithProtection(() => {
 	const location = useLocation();
@@ -19,7 +19,7 @@ export const Product = WithProtection(() => {
 	return (
 		<>
 			<ButtonBack />
-			<ProductDetail product={product} />
+			<Detail product={product} />
 			<ReviewList product={product} />
 		</>
 	);

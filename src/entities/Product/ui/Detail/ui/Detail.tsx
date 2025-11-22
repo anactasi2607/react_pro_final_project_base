@@ -1,20 +1,20 @@
-import s from './Product.module.css';
+import { WithProtection } from '../../../../../shared/store/HOCs/WithProtection';
+import { cartSelectors } from '../../../../../shared/store/slices/cart';
+import { useAppSelector } from '../../../../../shared/store/utils';
+import { CartCounter } from '../../../../../shared/ui/CartCounter';
+import { LikeButton } from '../../../../../shared/ui/LikeButton';
+import { ProductCartCounter } from '../../../../../shared/ui/ProductCartCounter';
+import { Rating } from '../../../../../shared/ui/Rating';
 import classNames from 'classnames';
-import truckSVG from '../../../shared/assets/icons/truck.svg';
-import qualitySVG from '../../../shared/assets/icons/quality.svg';
-import { Rating } from '../../../shared/ui/Rating';
-import { LikeButton } from '../../../shared/ui/LikeButton';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { ProductCartCounter } from '../../../shared/ui/ProductCartCounter/ui/ProductCartCounter';
-import { useAppSelector } from '../../../shared/store/utils';
-import { cartSelectors } from '../../../shared/store/slices/cart';
-import { CartCounter } from '../../../shared/ui/CartCounter';
+import truckSVG from '../../../../../shared/assets/icons/truck.svg';
+import qualitySVG from '../../../../../shared/assets/icons/quality.svg';
+import s from './Detail.module.css';
 
 type Props = {
 	product: Product;
 };
 
-export const ProductDetail = WithProtection(({ product }: Props) => {
+export const Detail = WithProtection(({ product }: Props) => {
 	const { id, name, images, description, price, discount } = product;
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 	const isProductInCart = !!cartProducts.find((p) => p.id === id);
