@@ -1,4 +1,6 @@
 import { Card } from '../../../entities/Product/ui/Card';
+import { cartSelectors } from '../../../shared/store/slices/cart';
+import { useAppSelector } from '../../../shared/store/utils';
 import s from './CardList.module.css';
 
 type CardListProps = {
@@ -6,9 +8,15 @@ type CardListProps = {
 	products: Product[];
 };
 export const CardList = ({ title, products }: CardListProps) => {
+	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
+
 	if (!products.length) {
 		return <h1 className='header-title'>Товар не найден</h1>;
 	}
+
+	const getIsProductInCart = (id: Product['id']) => {
+		return cartProducts.some((p) => p.id === id);
+	};
 
 	return (
 		<div className={s['card-list']}>
@@ -17,7 +25,11 @@ export const CardList = ({ title, products }: CardListProps) => {
 			</div>
 			<div className={s['card-list__items']}>
 				{products.map((product) => (
-					<Card key={product.id} product={product} />
+					<Card
+						key={product.id}
+						product={product}
+						isProductInCart={getIsProductInCart(product.id)}
+					/>
 				))}
 			</div>
 		</div>
