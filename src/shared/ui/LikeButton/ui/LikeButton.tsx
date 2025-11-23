@@ -6,13 +6,14 @@ import { userSelectors } from '../../../store/slices/user';
 import {
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
-	IErrorResponse,
 } from '../../../store/api/productsApi';
 import { toast } from 'react-toastify';
+import { startTransition, useOptimistic, useState } from 'react';
 
 type TLikeButtonProps = {
 	product: Product;
 };
+
 export const LikeButton = ({ product }: TLikeButtonProps) => {
 	const accessToken = useAppSelector(userSelectors.getAccessToken);
 	const user = useAppSelector(userSelectors.getUser);
@@ -20,30 +21,52 @@ export const LikeButton = ({ product }: TLikeButtonProps) => {
 	const [setLike] = useSetLikeProductMutation();
 	const [deleteLike] = useDeleteLikeProductMutation();
 
-	const isLike = product?.likes.some((l) => l.userId === user?.id);
+	const [isLiked, setIsLiked] = useState(
+		() => product?.likes.some((l) => l.userId === user?.id) || false
+	);
+
+	const [optimisticLike, addOptimisticLike] = useOptimistic<boolean, boolean>(
+		isLiked,
+		(_, isLike) => isLike
+	);
 
 	const toggleLike = async () => {
 		if (!accessToken) {
 			toast.warning('Вы не авторизованы');
+
 			return;
 		}
-		let response;
-		if (isLike) {
-			response = await deleteLike({ id: `${product.id}` });
-		} else {
-			response = await setLike({ id: `${product.id}` });
-		}
 
-		if (response.error) {
-			const error = response.error as IErrorResponse;
-			toast.error(error.data.message);
-		}
+		const newLikeStatus = !isLiked;
+
+		startTransition(async () => {
+			addOptimisticLike(newLikeStatus);
+
+			let response;
+
+			if (!isLiked) {
+				response = await setLike({ id: `${product.id}` });
+			} else {
+				response = await deleteLike({ id: `${product.id}` });
+			}
+
+			if (response.error) {
+				startTransition(() => {
+					addOptimisticLike(!newLikeStatus);
+					toast.error(`Товар ${product.name} не добавлен в избранное`);
+				});
+			} else {
+				startTransition(() => {
+					setIsLiked((prev) => !prev);
+				});
+			}
+		});
 	};
 
 	return (
 		<button
 			className={classNames(s['card__favorite'], {
-				[s['card__favorite_is-active']]: isLike,
+				[s['card__favorite_is-active']]: optimisticLike,
 			})}
 			onClick={toggleLike}>
 			<LikeSvg />
