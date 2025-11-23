@@ -1,10 +1,10 @@
-import { ReactComponent as TrashIcon } from '../../../shared/assets/icons/trash.svg';
 import { Link } from 'react-router-dom';
 import s from './CartItem.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { CartCounter } from '../../../shared/ui/CartCounter';
 import { cartActions } from '../../../shared/store/slices/cart';
+import { TrashIcon } from '../../../shared/ui/icons/Trash/ui/TrashIcon';
 
 type CartItemProps = {
 	product: CartProduct;

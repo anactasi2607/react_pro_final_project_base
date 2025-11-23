@@ -1,5 +1,4 @@
 import s from './LikeButton.module.css';
-import { ReactComponent as LikeSvg } from './../../../assets/icons/like.svg';
 import classNames from 'classnames';
 import { useAppSelector } from '../../../store/utils';
 import { userSelectors } from '../../../store/slices/user';
@@ -9,6 +8,7 @@ import {
 } from '../../../store/api/productsApi';
 import { toast } from 'react-toastify';
 import { startTransition, useOptimistic, useState } from 'react';
+import { LikeIcon } from '../../icons/Like/ui/LikeIcon';
 
 type TLikeButtonProps = {
 	product: Product;
@@ -69,7 +69,7 @@ export const LikeButton = ({ product }: TLikeButtonProps) => {
 				[s['card__favorite_is-active']]: optimisticLike,
 			})}
 			onClick={toggleLike}>
-			<LikeSvg />
+			<LikeIcon />
 		</button>
 	);
 };
