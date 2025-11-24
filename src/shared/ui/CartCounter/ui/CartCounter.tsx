@@ -1,4 +1,4 @@
-import { useCount } from '../hooks/useCount';
+import { useCount } from 'src/shared/ui/CartCounter/hooks/useCount';
 import s from './CartCounter.module.css';
 import classNames from 'classnames';
 

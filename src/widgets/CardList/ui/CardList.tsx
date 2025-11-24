@@ -1,14 +1,33 @@
-import { Card } from '../../../shared/ui/Card';
+import { Card } from 'src/entities/Product/ui/Card';
+import { cartSelectors } from 'src/app/store/slices/cart';
+import { useAppSelector } from 'src/app/store/utils';
 import s from './CardList.module.css';
+import { userSelectors } from 'src/app/store/slices/user';
+import {
+	useSetLikeProductMutation,
+	useDeleteLikeProductMutation,
+} from 'src/app/store/api/productsApi';
 
 type CardListProps = {
 	title: string;
 	products: Product[];
 };
+
 export const CardList = ({ title, products }: CardListProps) => {
+	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
+	const accessToken = useAppSelector(userSelectors.getAccessToken);
+	const user = useAppSelector(userSelectors.getUser);
+
+	const [setLike] = useSetLikeProductMutation();
+	const [deleteLike] = useDeleteLikeProductMutation();
+
 	if (!products.length) {
 		return <h1 className='header-title'>Товар не найден</h1>;
 	}
+
+	const getIsProductInCart = (id: Product['id']) => {
+		return cartProducts.some((p) => p.id === id);
+	};
 
 	return (
 		<div className={s['card-list']}>
@@ -17,7 +36,15 @@ export const CardList = ({ title, products }: CardListProps) => {
 			</div>
 			<div className={s['card-list__items']}>
 				{products.map((product) => (
-					<Card key={product.id} product={product} />
+					<Card
+						key={product.id}
+						product={product}
+						isProductInCart={getIsProductInCart(product.id)}
+						accessToken={accessToken}
+						user={user}
+						setLike={setLike}
+						deleteLike={deleteLike}
+					/>
 				))}
 			</div>
 		</div>

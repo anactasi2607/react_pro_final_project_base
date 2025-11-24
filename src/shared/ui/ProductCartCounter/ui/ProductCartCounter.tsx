@@ -1,7 +1,8 @@
 import s from './ProductCartCounter.module.css';
 import classNames from 'classnames';
-import { useCount } from '../hooks/useCount';
-import { useAddToCart } from '../../../hooks/useAddToCart';
+import { useCount } from 'src/shared/ui/ProductCartCounter/hooks/useCount';
+import { useAddToCart } from 'src/shared/hooks/useAddToCart';
+import { Button } from 'src/shared/ui/Button/ui/Button';
 
 type ProductCartCounterProps = {
 	product: Product;
@@ -26,11 +27,12 @@ export const ProductCartCounter = ({ product }: ProductCartCounterProps) => {
 					+
 				</button>
 			</div>
-			<button
-				onClick={() => addProductToCart({ ...product, count })}
-				className={classNames(s['button'], s['button_type_primary'])}>
+			<Button
+				variant='primary'
+				size='small'
+				onClick={() => addProductToCart({ ...product, count })}>
 				В корзину
-			</button>
+			</Button>
 		</div>
 	);
 };

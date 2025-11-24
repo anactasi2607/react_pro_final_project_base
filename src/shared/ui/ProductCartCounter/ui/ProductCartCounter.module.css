@@ -1,9 +1,9 @@
 .header-title {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-weight: 800;
 	font-size: 32px;
 	line-height: 1.5;
-	font-weight: 800;
-	margin-bottom: 20px;
-	margin-top: 0;
 }
 
 .product {
@@ -291,30 +291,6 @@ input[type='number']:focus {
 	appearance: none;
 }
 
-.button_type_primary {
-	background-color: #ffe44d;
-}
-
-.button_type_primary:hover {
-	color: #f44336;
-	background-color: #ffaa0d;
-}
-
-.button {
-	display: inline-flex;
-	align-items: center;
-	padding: 10px 18px;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 20px;
-	text-decoration: none;
-	column-gap: 8px;
-	border: 2px solid transparent;
-	border-radius: 55px;
-	cursor: pointer;
-	transition: background-color 0.3s;
-}
-
 .review {
 	display: flex;
 	flex-direction: column;
@@ -414,37 +390,4 @@ input:focus {
 	height: auto;
 	min-height: 100px;
 	resize: none;
-}
-
-.form__btn {
-	position: static;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	width: 356px;
-	margin: 8px 0;
-	padding: 14px 24px;
-	color: #1a1a1a;
-	font-weight: 700;
-	font-size: 16px;
-	font-family: 'Arial', 'Helvetica', sans-serif;
-	font-style: normal;
-	line-height: 20px;
-	border-radius: 55px;
-	cursor: pointer;
-}
-
-.form__btn.pramary {
-	background: #ffe44d;
-	border: none;
-}
-
-.form__btn.secondary {
-	background: white;
-	border: 0.5px solid #cfd8dc;
-}
-
-.form__btn.maxContent {
-	width: max-content;
 }

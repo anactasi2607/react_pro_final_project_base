@@ -1,11 +1,12 @@
 import classNames from 'classnames';
 import s from './ReviewList.module.css';
-import { Rating } from '../../../shared/ui/Rating';
-import { ReviewForm } from './ReviewForm/ReviewForm';
+import { Rating } from 'src/shared/ui/Rating';
+import { ReviewForm } from 'src/features/ReviewForm/ReviewForm';
 
 type ReviewListProps = {
 	product: Product;
 };
+
 export const ReviewList = ({ product }: ReviewListProps) => {
 	return (
 		<div className={classNames(s['product__reviews'])}>

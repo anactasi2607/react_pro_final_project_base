@@ -1,5 +1,5 @@
-import { cartActions } from '../store/slices/cart';
-import { useAppDispatch } from '../store/utils';
+import { cartActions } from 'src/app/store/slices/cart';
+import { useAppDispatch } from 'src/app/store/utils';
 
 export const useAddToCart = () => {
 	const dispatch = useAppDispatch();
