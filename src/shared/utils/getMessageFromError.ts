@@ -1,4 +1,4 @@
-import { objectHasProperty } from './common';
+import { objectHasProperty } from 'src/shared/utils/common';
 
 export const getMessageFromError = (
 	error: unknown,

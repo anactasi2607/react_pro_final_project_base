@@ -1,8 +1,8 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import classNames from 'classnames';
 import s from './ReviewForm.module.css';
-import { Rating } from '../../shared/ui/Rating';
-import { Button } from '../../shared/ui/Button';
+import { Rating } from 'src/shared/ui/Rating';
+import { Button } from 'src/shared/ui/Button';
 
 const FORM_ID = 'form-id';
 

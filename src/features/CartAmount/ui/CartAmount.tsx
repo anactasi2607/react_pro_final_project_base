@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import { Button } from '../../../shared/ui/Button';
-import { Modal } from '../../../shared/ui/Modal';
+import { Button } from 'src/shared/ui/Button';
+import { Modal } from 'src/shared/ui/Modal';
 import s from './CartAmount.module.css';
 import classNames from 'classnames';
 

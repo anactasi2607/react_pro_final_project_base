@@ -1,8 +1,8 @@
 import s from './ProductCartCounter.module.css';
 import classNames from 'classnames';
-import { useCount } from '../hooks/useCount';
-import { useAddToCart } from '../../../hooks/useAddToCart';
-import { Button } from '../../Button/ui/Button';
+import { useCount } from 'src/shared/ui/ProductCartCounter/hooks/useCount';
+import { useAddToCart } from 'src/shared/hooks/useAddToCart';
+import { Button } from 'src/shared/ui/Button/ui/Button';
 
 type ProductCartCounterProps = {
 	product: Product;

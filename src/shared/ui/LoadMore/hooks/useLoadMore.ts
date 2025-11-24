@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useLayoutEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../store/utils';
-import { useProducts } from '../../../store/hooks/useProducts';
+import { useAppDispatch, useAppSelector } from 'src/shared/store/utils';
+import { useProducts } from 'src/shared/store/hooks/useProducts';
 import {
 	productsActions,
 	productsSelectors,

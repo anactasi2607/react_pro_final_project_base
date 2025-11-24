@@ -1,6 +1,6 @@
-import { cartSelectors } from '../../../shared/store/slices/cart';
-import { useAppSelector } from '../../../shared/store/utils';
-import { CartItem } from '../../CartItem';
+import { cartSelectors } from 'src/shared/store/slices/cart';
+import { useAppSelector } from 'src/shared/store/utils';
+import { CartItem } from 'src/features/CartItem';
 import s from './CartList.module.css';
 import classNames from 'classnames';
 

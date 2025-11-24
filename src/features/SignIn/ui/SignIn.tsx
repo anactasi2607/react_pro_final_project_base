@@ -7,11 +7,11 @@ import { toast } from 'react-toastify';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
-import { SignInFormValues } from '../model/types';
-import { signInFormSchema } from '../model/validator';
-import { useSignInMutation } from '../../../shared/store/api/authApi';
-import { userActions } from '../../../shared/store/slices/user';
-import { getMessageFromError } from '../../../shared/utils';
+import { SignInFormValues } from 'src/features/SignIn/model/types';
+import { signInFormSchema } from 'src/features/SignIn/model/validator';
+import { useSignInMutation } from 'src/shared/store/api/authApi';
+import { userActions } from 'src/shared/store/slices/user';
+import { getMessageFromError } from 'src/shared/utils';
 
 export const SignIn: FC = () => {
 	const dispatch = useDispatch();

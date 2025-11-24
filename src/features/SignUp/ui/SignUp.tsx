@@ -6,11 +6,11 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { SignUpFormValues } from '../model/types';
-import { signUpFormSchema } from '../model/validator';
-import { userActions } from '../../../shared/store/slices/user';
-import { getMessageFromError } from '../../../shared/utils';
-import { useSignUpMutation } from '../../../shared/store/api/authApi';
+import { SignUpFormValues } from 'src/features/SignUp/model/types';
+import { signUpFormSchema } from 'src/features/SignUp/model/validator';
+import { userActions } from 'src/shared/store/slices/user';
+import { getMessageFromError } from 'src/shared/utils';
+import { useSignUpMutation } from 'src/shared/store/api/authApi';
 
 export const SignUp: FC = () => {
 	const dispatch = useDispatch();

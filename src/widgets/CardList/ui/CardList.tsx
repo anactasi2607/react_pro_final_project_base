@@ -1,6 +1,6 @@
-import { Card } from '../../../entities/Product/ui/Card';
-import { cartSelectors } from '../../../shared/store/slices/cart';
-import { useAppSelector } from '../../../shared/store/utils';
+import { Card } from 'src/entities/Product/ui/Card';
+import { cartSelectors } from 'src/shared/store/slices/cart';
+import { useAppSelector } from 'src/shared/store/utils';
 import s from './CardList.module.css';
 
 type CardListProps = {

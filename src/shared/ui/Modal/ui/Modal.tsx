@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 import s from './Modal.module.css';
-import { Button } from '../../Button';
+import { Button } from 'src/shared/ui/Button';
 
 type ModalProps = {
 	children: ReactNode;

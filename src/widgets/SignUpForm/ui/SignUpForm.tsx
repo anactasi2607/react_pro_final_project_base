@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Avatar, Box, Container, Typography } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { SignUp } from '../../../features/SignUp/ui/SignUp';
+import { SignUp } from 'src/features/SignUp/ui/SignUp';
 
 export const SignUpForm: FC = () => {
 	return (

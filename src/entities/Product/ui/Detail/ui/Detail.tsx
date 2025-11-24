@@ -1,13 +1,13 @@
-import { WithProtection } from '../../../../../shared/store/HOCs/WithProtection';
-import { cartSelectors } from '../../../../../shared/store/slices/cart';
-import { useAppSelector } from '../../../../../shared/store/utils';
-import { CartCounter } from '../../../../../shared/ui/CartCounter';
-import { LikeButton } from '../../../../../shared/ui/LikeButton';
-import { ProductCartCounter } from '../../../../../shared/ui/ProductCartCounter';
-import { Rating } from '../../../../../shared/ui/Rating';
+import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
+import { cartSelectors } from 'src/shared/store/slices/cart';
+import { useAppSelector } from 'src/shared/store/utils';
+import { CartCounter } from 'src/shared/ui/CartCounter';
+import { LikeButton } from 'src/shared/ui/LikeButton';
+import { ProductCartCounter } from 'src/shared/ui/ProductCartCounter';
+import { Rating } from 'src/shared/ui/Rating';
 import classNames from 'classnames';
-import truckSVG from '../../../../../shared/assets/icons/truck.svg';
-import qualitySVG from '../../../../../shared/assets/icons/quality.svg';
+import truckSVG from 'src/shared/assets/icons/truck.svg';
+import qualitySVG from 'src/shared/assets/icons/quality.svg';
 import s from './Detail.module.css';
 
 type Props = {

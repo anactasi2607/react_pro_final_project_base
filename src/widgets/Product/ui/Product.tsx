@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
-import { ReviewList } from '../../ReviewList/ui/ReviewList';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { useGetProductQuery } from '../../../shared/store/api/productsApi';
-import { Detail } from '../../../entities/Product/ui/Detail/ui/Detail';
+import { ReviewList } from 'src/widgets/ReviewList/ui/ReviewList';
+import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
+import { useGetProductQuery } from 'src/shared/store/api/productsApi';
+import { Detail } from 'src/entities/Product/ui/Detail/ui/Detail';
 
 export const Product = WithProtection(() => {
 	const location = useLocation();

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useDebounce } from '../../../hooks/useDebounce';
-import { useAppDispatch } from '../../../store/utils';
-import { productsActions } from '../../../store/slices/products';
+import { useDebounce } from 'src/shared/hooks/useDebounce';
+import { useAppDispatch } from 'src/shared/store/utils';
+import { productsActions } from 'src/shared/store/slices/products';
 
 const QUERY_SEARCH_PHRASE = 'q';
 

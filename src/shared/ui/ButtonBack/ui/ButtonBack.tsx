@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BackIcon } from '../../icons/Back/ui/BackIcon';
+import { BackIcon } from 'src/shared/ui/icons/Back/ui/BackIcon';
 
 export const ButtonBack = () => {
 	const navigate = useNavigate();

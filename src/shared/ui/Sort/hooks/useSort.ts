@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../../store/utils';
+import { useAppDispatch, useAppSelector } from 'src/shared/store/utils';
 import {
 	productsActions,
 	productsSelectors,

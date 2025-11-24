@@ -1,6 +1,6 @@
 import { ComponentType, FC } from 'react';
-import { useAppSelector } from '../utils';
-import { userSelectors } from '../slices/user';
+import { useAppSelector } from 'src/shared/store/utils';
+import { userSelectors } from 'src/shared/store/slices/user';
 import { Navigate, useLocation } from 'react-router-dom';
 
 export const WithProtection = <P extends object>(

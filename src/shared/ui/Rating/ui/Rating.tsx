@@ -1,4 +1,4 @@
-import { StarIcon } from '../../icons/Star/ui/StarIcon';
+import { StarIcon } from 'src/shared/ui/icons/Star/ui/StarIcon';
 
 type TRating = {
 	rating?: number;

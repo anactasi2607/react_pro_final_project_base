@@ -1,10 +1,10 @@
 import { FormEvent } from 'react';
 import s from './ProfilePage.module.css';
 import classNames from 'classnames';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { Button } from '../../../shared/ui/Button';
-import { Input } from '../../../shared/ui/Input';
+import { ButtonBack } from 'src/shared/ui/ButtonBack';
+import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
+import { Button } from 'src/shared/ui/Button';
+import { Input } from 'src/shared/ui/Input';
 
 const FORM_ID_FIRST = 'form-id-first';
 const FORM_ID_SECOND = 'form-id-second';
