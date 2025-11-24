@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { customBaseQuery } from 'src/shared/store/api/config';
+import { customBaseQuery } from 'src/app/store/api/config';
 
 export interface IErrorResponse {
 	data: { statusCode: number; message: string; error: string };

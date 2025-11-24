@@ -1,8 +1,8 @@
-import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
-import { WithQuery } from 'src/shared/store/HOCs/WithQuery';
+import { WithProtection } from 'src/app/store/HOCs/WithProtection';
+import { WithQuery } from 'src/app/store/HOCs/WithQuery';
 import { LoadMore } from 'src/shared/ui/LoadMore';
 import { CardList } from 'src/widgets/CardList';
-import { useProducts } from 'src/shared/store/hooks/useProducts';
+import { useProducts } from 'src/app/store/hooks/useProducts';
 
 const CardListWithQuery = WithQuery(CardList);
 

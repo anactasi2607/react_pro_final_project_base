@@ -3,7 +3,7 @@ import s from './CartItem.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
 import { CartCounter } from 'src/shared/ui/CartCounter';
-import { cartActions } from 'src/shared/store/slices/cart';
+import { cartActions } from 'src/app/store/slices/cart';
 import { TrashIcon } from 'src/shared/ui/icons/Trash/ui/TrashIcon';
 
 type CartItemProps = {

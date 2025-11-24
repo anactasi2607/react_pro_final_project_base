@@ -3,11 +3,11 @@ import s from './Header.module.css';
 import { Logo } from 'src/shared/ui/Logo';
 import { Search } from 'src/shared/ui/Search/ui/Search';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from 'src/shared/store/utils';
-import { userSelectors } from 'src/shared/store/slices/user';
+import { useAppSelector } from 'src/app/store/utils';
+import { userSelectors } from 'src/app/store/slices/user';
 import { isLiked } from 'src/shared/utils';
-import { useProducts } from 'src/shared/store/hooks/useProducts';
-import { cartSelectors } from 'src/shared/store/slices/cart';
+import { useProducts } from 'src/app/store/hooks/useProducts';
+import { cartSelectors } from 'src/app/store/slices/cart';
 
 export const Header = () => {
 	const { products } = useProducts();

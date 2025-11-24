@@ -1,11 +1,11 @@
 import s from './LikeButton.module.css';
 import classNames from 'classnames';
-import { useAppSelector } from 'src/shared/store/utils';
-import { userSelectors } from 'src/shared/store/slices/user';
+import { useAppSelector } from 'src/app/store/utils';
+import { userSelectors } from 'src/app/store/slices/user';
 import {
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
-} from 'src/shared/store/api/productsApi';
+} from 'src/app/store/api/productsApi';
 import { toast } from 'react-toastify';
 import { startTransition, useOptimistic, useState } from 'react';
 import { LikeIcon } from 'src/shared/ui/icons/Like/ui/LikeIcon';

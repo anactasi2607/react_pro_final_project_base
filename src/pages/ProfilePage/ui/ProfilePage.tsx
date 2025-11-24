@@ -2,7 +2,7 @@ import { FormEvent } from 'react';
 import s from './ProfilePage.module.css';
 import classNames from 'classnames';
 import { ButtonBack } from 'src/shared/ui/ButtonBack';
-import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
+import { WithProtection } from 'src/app/store/HOCs/WithProtection';
 import { Button } from 'src/shared/ui/Button';
 import { Input } from 'src/shared/ui/Input';
 

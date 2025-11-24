@@ -1,6 +1,6 @@
-import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
-import { WithQuery } from 'src/shared/store/HOCs/WithQuery';
-import { useProducts } from 'src/shared/store/hooks/useProducts';
+import { WithProtection } from 'src/app/store/HOCs/WithProtection';
+import { WithQuery } from 'src/app/store/HOCs/WithQuery';
+import { useProducts } from 'src/app/store/hooks/useProducts';
 import { ButtonBack } from 'src/shared/ui/ButtonBack';
 import { CardList } from 'src/widgets/CardList';
 

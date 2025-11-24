@@ -12,6 +12,7 @@
 - выделена фича продукта;
 - убраны лишние проп-пробросы;
 - проверена папка shared: вынесена папка providers из shared в app, вынесен компонент Card в entities;
+- store вынесен в папку app;
 
 ## Задание 2 ОПТИМИЗАЦИЯ:
 
@@ -68,7 +69,7 @@
 
 ![Optimistic Like Update](src/shared/assets/gif/Оптимистичное%20обновление%20лайка.gif)
 
-## Project Structure
+## Структура проекта
 
 ```
 react_pro_final_project_base/
@@ -96,14 +97,33 @@ react_pro_final_project_base/
 │   │   ├── app.module.css
 │   │   ├── App.tsx
 │   │   ├── index.ts
-│   │   └── providers/
-│   │       └── router/
-│   │           ├── index.ts
-│   │           └── config/
-│   │               └── router.tsx
-│   ├── app/styles/
-│   │   ├── normalize.css
-│   │   └── styles.css
+│   │   ├── providers/
+│   │   │   └── router/
+│   │   │       ├── index.ts
+│   │   │       └── config/
+│   │   │           └── router.tsx
+│   │   ├── store/
+│   │   │   ├── store.ts
+│   │   │   ├── types.ts
+│   │   │   ├── utils.ts
+│   │   │   ├── api/
+│   │   │   │   ├── authApi.ts
+│   │   │   │   ├── config.ts
+│   │   │   │   └── productsApi.ts
+│   │   │   ├── HOCs/
+│   │   │   │   ├── WithProtection.tsx
+│   │   │   │   └── WithQuery.tsx
+│   │   │   ├── hooks/
+│   │   │   │   └── useProducts.ts
+│   │   │   ├── reducers/
+│   │   │   │   └── rootReducer.ts
+│   │   └── slices/
+│   │   │       ├── cart.ts
+│   │       ├── products.ts
+│   │   │       └── user.ts
+│   │   └── styles/
+│   │       ├── normalize.css
+│   │       └── styles.css
 │   ├── entities/
 │   │   └── Product/
 │   │       └── ui/
@@ -143,25 +163,25 @@ react_pro_final_project_base/
 │   │   ├── model/
 │   │   │   │   ├── types.ts
 │   │   │   │   └── validator.ts
-│   │   └── ui/
+│   │   │   └── ui/
 │   │   │       └── SignIn.tsx
-│   │   └── SignUp/
-│   │       ├── model/
-│   │       │   ├── types.ts
-│   │       │   └── validator.ts
-│   │       └── ui/
-│   │           └── SignUp.tsx
+│   │   ├── SignUp/
+│   │   │   ├── model/
+│   │   │   ├── types.ts
+│   │   │   │   └── validator.ts
+│   │   │   └── ui/
+│   │   │       └── SignUp.tsx
 │   ├── pages/
 │   │   ├── CartPage/
 │   │   │   ├── index.ts
 │   │   │   └── ui/
-│   │   │       └── CartPage.tsx
+│   │       └── CartPage.tsx
 │   │   ├── FavoritesPage/
 │   │   │   ├── index.ts
 │   │   │   └── ui/
 │   │   │       └── FavoritesPage.tsx
 │   │   ├── HomePage/
-│   │   ├── index.ts
+│   │   │   ├── index.ts
 │   │   │   └── ui/
 │   │   │       └── HomePage.tsx
 │   │   ├── NotFoundPage/
@@ -192,8 +212,15 @@ react_pro_final_project_base/
 │   │   │   └── hooks/
 │   │   │       └── useActionCreated.ts
 │   │   ├── assets/
-│   │   ├── icons/
-│   │   │   │   ├── back.svg
+│   │   │   ├── gif/
+│   │   │   │   ├── Модальное окно.gif
+│   │   │   │   ├── Оптимистичное обновление лайка.gif
+│   │   │   │   ├── ререндер при клике на кнопку добавления до.gif
+│   │   │   │   ├── ререндер при клике на кнопку добавления после.gif
+│   │   │   │   ├── ререндер списка по лайку до.gif
+│   │   │   │   └── ререндер списка по лайку после.gif
+│   │   │   ├── icons/
+│   │   │   ├── back.svg
 │   │   │   │   ├── like.svg
 │   │   │   │   ├── quality.svg
 │   │   │   │   ├── star.svg
@@ -204,34 +231,17 @@ react_pro_final_project_base/
 │   │   │       ├── telegram.svg
 │   │   │       ├── viber.svg
 │   │   │       ├── vk.svg
-│   │   │       └── whatsapp.svg
+│   │   │       ├── whatsapp.svg
+│   │   │       ├── сборка vite.png
+│   │   │       └── сборка webpack.png
 │   │   ├── hooks/
 │   │   │   ├── useAddToCart.ts
 │   │   │   ├── useDebounce.ts
 │   │   │   └── usePagination.ts
-│   │   ├── store/
-│   │   │   ├── store.ts
-│   │   │   ├── types.ts
-│   │   │   ├── utils.ts
-│   │   │   ├── api/
-│   │   │   │   ├── authApi.ts
-│   │   │   │   ├── config.ts
-│   │   │   │   └── productsApi.ts
-│   │   │   ├── HOCs/
-│   │   │   │   ├── WithProtection.tsx
-│   │   │   │   └── WithQuery.tsx
-│   │   │   ├── hooks/
-│   │   │   │   └── useProducts.ts
-│   │   │   ├── reducers/
-│   │   │   │   └── rootReducer.ts
-│   │   │   ├── slices/
-│   │   │   │   ├── cart.ts
-│   │   │   │   ├── products.ts
-│   │   │   │   └── user.ts
 │   │   ├── types/
 │   │   │   └── global.d.ts
 │   │   ├── ui/
-│   │   │   ├── Button/
+│   │   ├── Button/
 │   │   │   │   ├── index.ts
 │   │   │   │   └── ui/
 │   │   │   │       ├── Button.module.css
@@ -243,23 +253,23 @@ react_pro_final_project_base/
 │   │   │   ├── CartCounter/
 │   │   │   │   ├── index.ts
 │   │   │   │   ├── hooks/
-│   │   │   └── useCount.ts
+│   │   │   │   │   └── useCount.ts
 │   │   │   │   └── ui/
 │   │   │   │       ├── CartCounter.module.css
 │   │   │   │       └── CartCounter.tsx
 │   │   │   ├── icons/
-│   │   │   │   ├── Back/
+│   │   │   ├── Back/
 │   │   │   │   │   └── ui/
 │   │   │   │   │       └── BackIcon.tsx
 │   │   │   │   ├── Like/
 │   │   │   │   │   └── ui/
 │   │   │   │   │       └── LikeIcon.tsx
 │   │   │   │   ├── Star/
-│   │   │   │   │   └── ui/
+│   │   │   │   └── ui/
 │   │   │   │   │       └── StarIcon.tsx
 │   │   │   │   └── Trash/
 │   │   │   │       └── ui/
-│   │   │   │           └── TrashIcon.tsx
+│   │   │       └── TrashIcon.tsx
 │   │   │   ├── Input/
 │   │   │   │   ├── index.ts
 │   │   │   │   └── ui/
@@ -298,7 +308,7 @@ react_pro_final_project_base/
 │   │   │   ├── Rating/
 │   │   │   ├── index.ts
 │   │   │   │   └── ui/
-│   │   │   │       └── Rating.tsx
+│   │   │       └── Rating.tsx
 │   │   │   ├── Search/
 │   │   │   │   ├── hooks/
 │   │   │   │   │   └── usePostsSearchForm.ts
@@ -306,16 +316,16 @@ react_pro_final_project_base/
 │   │   │   │       ├── Search.module.css
 │   │   │   │       └── Search.tsx
 │   │   │   ├── Sort/
-│   │   │   │   ├── index.ts
+│   │   │   ├── index.ts
 │   │   │   │   ├── hooks/
-│   │   │   └── useSort.ts
+│   │   │   │   │   └── useSort.ts
 │   │   │   │   └── ui/
 │   │   │   │       └── Sort.tsx
-│   │   │   ├── Spinner/
-│   │   │   │   ├── index.ts
-│   │   │   │   └── ui/
-│   │   │   │       ├── Spinner.module.css
-│   │   │   │       └── Spinner.tsx
+│   │   │   └── Spinner/
+│   │   │       ├── index.ts
+│   │   │       └── ui/
+│   │   │           ├── Spinner.module.css
+│   │   │           └── Spinner.tsx
 │   │   ├── utils/
 │   │   │   ├── common.ts
 │   │   │   ├── getMessageFromError.ts

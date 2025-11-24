@@ -1,6 +1,6 @@
-import { WithProtection } from 'src/shared/store/HOCs/WithProtection';
-import { cartSelectors } from 'src/shared/store/slices/cart';
-import { useAppSelector } from 'src/shared/store/utils';
+import { WithProtection } from 'src/app/store/HOCs/WithProtection';
+import { cartSelectors } from 'src/app/store/slices/cart';
+import { useAppSelector } from 'src/app/store/utils';
 import { CartCounter } from 'src/shared/ui/CartCounter';
 import { LikeButton } from 'src/shared/ui/LikeButton';
 import { ProductCartCounter } from 'src/shared/ui/ProductCartCounter';

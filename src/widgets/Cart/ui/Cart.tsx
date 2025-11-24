@@ -1,7 +1,7 @@
 import s from './Cart.module.css';
 import classNames from 'classnames';
-import { useAppSelector } from 'src/shared/store/utils';
-import { cartSelectors } from 'src/shared/store/slices/cart';
+import { useAppSelector } from 'src/app/store/utils';
+import { cartSelectors } from 'src/app/store/slices/cart';
 import { CartList } from 'src/features/CartList';
 import { CartAmount } from 'src/features/CartAmount';
 
