@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
 import { ReviewList } from '../../ReviewList/ui/ReviewList';
 import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
 import { useGetProductQuery } from '../../../shared/store/api/productsApi';
@@ -18,7 +17,6 @@ export const Product = WithProtection(() => {
 
 	return (
 		<>
-			<ButtonBack />
 			<Detail product={product} />
 			<ReviewList product={product} />
 		</>
