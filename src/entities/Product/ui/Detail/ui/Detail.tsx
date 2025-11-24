@@ -8,6 +8,11 @@ import { Rating } from 'src/shared/ui/Rating';
 import classNames from 'classnames';
 import truckSVG from 'src/shared/assets/icons/truck.svg';
 import qualitySVG from 'src/shared/assets/icons/quality.svg';
+import { userSelectors } from 'src/app/store/slices/user';
+import {
+	useSetLikeProductMutation,
+	useDeleteLikeProductMutation,
+} from 'src/app/store/api/productsApi';
 import s from './Detail.module.css';
 
 type Props = {
@@ -18,6 +23,11 @@ export const Detail = WithProtection(({ product }: Props) => {
 	const { id, name, images, description, price, discount } = product;
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 	const isProductInCart = !!cartProducts.find((p) => p.id === id);
+	const accessToken = useAppSelector(userSelectors.getAccessToken);
+	const user = useAppSelector(userSelectors.getUser);
+
+	const [setLike] = useSetLikeProductMutation();
+	const [deleteLike] = useDeleteLikeProductMutation();
 
 	return (
 		<>
@@ -46,7 +56,13 @@ export const Detail = WithProtection(({ product }: Props) => {
 						<ProductCartCounter product={product} />
 					)}
 
-					<LikeButton product={product} />
+					<LikeButton
+						product={product}
+						accessToken={accessToken}
+						user={user}
+						setLike={setLike}
+						deleteLike={deleteLike}
+					/>
 					<div className={classNames(s['product__delivery'])}>
 						<img src={truckSVG} alt='truck' />
 						<div className={classNames(s['product__right'])}>

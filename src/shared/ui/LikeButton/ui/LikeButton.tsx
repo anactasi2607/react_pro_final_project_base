@@ -1,26 +1,32 @@
 import s from './LikeButton.module.css';
 import classNames from 'classnames';
-import { useAppSelector } from 'src/app/store/utils';
-import { userSelectors } from 'src/app/store/slices/user';
-import {
-	useSetLikeProductMutation,
-	useDeleteLikeProductMutation,
-} from 'src/app/store/api/productsApi';
 import { toast } from 'react-toastify';
 import { startTransition, useOptimistic, useState } from 'react';
 import { LikeIcon } from 'src/shared/ui/icons/Like/ui/LikeIcon';
+import {
+	SetLikeResponse,
+	DeleteLikeResponse,
+} from 'src/app/store/api/productsApi';
 
 type TLikeButtonProps = {
 	product: Product;
+	accessToken: string;
+	user: Partial<User> | null;
+	setLike: (arg: {
+		id: string;
+	}) => Promise<{ data?: SetLikeResponse; error?: any }>;
+	deleteLike: (arg: {
+		id: string;
+	}) => Promise<{ data?: DeleteLikeResponse; error?: any }>;
 };
 
-export const LikeButton = ({ product }: TLikeButtonProps) => {
-	const accessToken = useAppSelector(userSelectors.getAccessToken);
-	const user = useAppSelector(userSelectors.getUser);
-
-	const [setLike] = useSetLikeProductMutation();
-	const [deleteLike] = useDeleteLikeProductMutation();
-
+export const LikeButton = ({
+	product,
+	accessToken,
+	user,
+	setLike,
+	deleteLike,
+}: TLikeButtonProps) => {
 	const [isLiked, setIsLiked] = useState(
 		() => product?.likes.some((l) => l.userId === user?.id) || false
 	);

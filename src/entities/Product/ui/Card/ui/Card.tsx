@@ -7,63 +7,90 @@ import { CartCounter } from 'src/shared/ui/CartCounter';
 import { LikeButton } from 'src/shared/ui/LikeButton';
 import { Button } from 'src/shared/ui/Button';
 import { memo } from 'react';
+import {
+	SetLikeResponse,
+	DeleteLikeResponse,
+} from 'src/app/store/api/productsApi';
 
 type CardProps = {
 	product: Product;
 	isProductInCart: boolean;
+	accessToken: string;
+	user: Partial<User> | null;
+	setLike: (arg: {
+		id: string;
+	}) => Promise<{ data?: SetLikeResponse; error?: any }>;
+	deleteLike: (arg: {
+		id: string;
+	}) => Promise<{ data?: DeleteLikeResponse; error?: any }>;
 };
 
-export const Card = memo(({ product, isProductInCart }: CardProps) => {
-	const { discount, price, name, tags, id, images } = product;
-	const { addProductToCart } = useAddToCart();
+export const Card = memo(
+	({
+		product,
+		isProductInCart,
+		accessToken,
+		user,
+		setLike,
+		deleteLike,
+	}: CardProps) => {
+		const { discount, price, name, tags, id, images } = product;
+		const { addProductToCart } = useAddToCart();
 
-	return (
-		<article className={s['card']}>
-			<div
-				className={classNames(
-					s['card__sticky'],
-					s['card__sticky_type_top-left']
-				)}>
-				<span className={s['card__discount']}>{discount}</span>
-				{tags.length > 0 &&
-					tags.map((t) => (
-						<span key={t} className={classNames(s['tag'], s['tag_type_new'])}>
-							{t}
-						</span>
-					))}
-			</div>
-			<div
-				className={classNames(
-					s['card__sticky'],
-					s['card__sticky_type_top-right']
-				)}>
-				<LikeButton product={product} />
-			</div>
-			<Link className={s['card__link']} to={`/products/${id}`}>
-				<img
-					src={images}
-					alt={name}
-					className={s['card__image']}
-					loading='lazy'
-				/>
-				<div className={s['card__desc']}>
-					<Price price={price} discountPrice={discount} />
-					<h3 className={s['card__name']}>{name}</h3>
+		return (
+			<article className={s['card']}>
+				<div
+					className={classNames(
+						s['card__sticky'],
+						s['card__sticky_type_top-left']
+					)}>
+					<span className={s['card__discount']}>{discount}</span>
+					{tags.length > 0 &&
+						tags.map((t) => (
+							<span key={t} className={classNames(s['tag'], s['tag_type_new'])}>
+								{t}
+							</span>
+						))}
 				</div>
-			</Link>
-			{isProductInCart ? (
-				<CartCounter productId={id} />
-			) : (
-				<Button
-					variant='primary'
-					size='small'
-					disabled={isProductInCart}
-					onClick={() => addProductToCart({ ...product, count: 1 })}>
-					В корзину
-				</Button>
-			)}
-		</article>
-	);
-});
+				<div
+					className={classNames(
+						s['card__sticky'],
+						s['card__sticky_type_top-right']
+					)}>
+					<LikeButton
+						product={product}
+						accessToken={accessToken}
+						user={user}
+						setLike={setLike}
+						deleteLike={deleteLike}
+					/>
+				</div>
+				<Link className={s['card__link']} to={`/products/${id}`}>
+					<img
+						src={images}
+						alt={name}
+						className={s['card__image']}
+						loading='lazy'
+					/>
+					<div className={s['card__desc']}>
+						<Price price={price} discountPrice={discount} />
+						<h3 className={s['card__name']}>{name}</h3>
+					</div>
+				</Link>
+				{isProductInCart ? (
+					<CartCounter productId={id} />
+				) : (
+					<Button
+						variant='primary'
+						size='small'
+						disabled={isProductInCart}
+						onClick={() => addProductToCart({ ...product, count: 1 })}>
+						В корзину
+					</Button>
+				)}
+			</article>
+		);
+	}
+);
 
 Card.displayName = 'Card';

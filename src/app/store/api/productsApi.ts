@@ -11,7 +11,7 @@ interface ProductsResponse {
 	length: number;
 }
 
-interface SetLikeResponse {
+export interface SetLikeResponse {
 	like: {
 		id: string;
 		userId: string;
@@ -19,7 +19,7 @@ interface SetLikeResponse {
 	};
 	message: string;
 }
-interface DeleteLikeResponse {
+export interface DeleteLikeResponse {
 	product: {
 		id: string;
 		userId: string;
