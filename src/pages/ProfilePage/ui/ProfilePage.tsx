@@ -16,7 +16,7 @@ export const ProfilePage = WithProtection(() => {
 	};
 
 	return (
-		<div>
+		<div className='pageContainer'>
 			<ButtonBack />
 			<h1 className={s['form__title']}>Мои данные</h1>
 			<form

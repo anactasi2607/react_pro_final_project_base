@@ -11,7 +11,7 @@ export const FavoritesPage = WithProtection(() => {
 	const { isLoading, isError, products, error } = useProducts();
 
 	return (
-		<div>
+		<div className='pageContainer'>
 			<Sort />
 			<ButtonBack />
 			<CardListWithQuery

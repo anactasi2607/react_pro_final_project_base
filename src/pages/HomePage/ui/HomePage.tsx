@@ -11,7 +11,7 @@ export const HomePage = WithProtection(() => {
 	const { products, isLoading, isError, error } = useProducts();
 
 	return (
-		<div>
+		<div className='pageContainer'>
 			<Sort />
 			<CardListWithQuery
 				title='Лакомства'

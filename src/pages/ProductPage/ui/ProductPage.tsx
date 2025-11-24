@@ -4,7 +4,7 @@ import { Product } from 'src/widgets/Product/ui/Product';
 
 export const ProductPage = WithProtection(() => {
 	return (
-		<div>
+		<div className='pageContainer'>
 			<ButtonBack />
 			<Product />
 		</div>
