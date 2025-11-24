@@ -3,27 +3,27 @@
 }
 
 .container {
-	max-width: 1024px;
-	padding-left: 16px;
-	padding-right: 16px;
 	width: 95%;
+	max-width: 1024px;
 	margin: 0 auto;
+	padding-right: 16px;
+	padding-left: 16px;
 }
 
 .content-cart {
 	display: grid;
-	grid-template-areas: 'info info' 'list amount';
-	column-gap: 60px;
 	grid-template-columns: 2fr 1fr;
+	grid-template-areas: 'info info' 'list amount';
 	align-items: flex-start;
+	column-gap: 60px;
 }
 
 .cart-title {
+	grid-area: info;
+	margin-bottom: 20px;
 	font-weight: 300;
 	font-size: 28px;
 	line-height: 32px;
-	margin-bottom: 20px;
-	grid-area: info;
 }
 
 .cart-title span {

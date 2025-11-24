@@ -1,20 +1,19 @@
 .cart-amount {
-	grid-area: amount;
-	background: #ffffff;
-	box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.02),
-		0px 2px 16px rgba(96, 97, 112, 0.16);
-	border-radius: 20px;
-	padding: 16px;
 	display: grid;
 	grid-auto-rows: min-content;
+	grid-area: amount;
 	row-gap: 24px;
+	padding: 16px;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 0 1px rgb(40 41 61 / 2%), 0 2px 16px rgb(96 97 112 / 16%);
 }
 
 .cart-amount__title {
+	margin: 0;
 	font-weight: 800;
 	font-size: 20px;
 	line-height: 24px;
-	margin: 0;
 }
 
 .cart-amount__table {

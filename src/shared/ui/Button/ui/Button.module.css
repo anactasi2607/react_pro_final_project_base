@@ -1,17 +1,17 @@
 /* TODO: не все тут нужно */
 
 .button {
-	font-size: 16px;
-	font-weight: 700;
-	line-height: 20px;
-	border-radius: 55px;
-	text-decoration: none;
 	display: inline-flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 20px;
+	text-decoration: none;
 	column-gap: 8px;
-	transition: background-color 0.3s;
 	border: 2px solid transparent;
+	border-radius: 55px;
+	transition: background-color 0.3s;
 }
 
 .button:not(:disabled) {
