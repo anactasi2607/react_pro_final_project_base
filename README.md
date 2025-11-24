@@ -21,12 +21,16 @@
 - найдены и убраны дубли ререндеров при добавлении в избранное в списке товаров;
 - использован useMemo для сложных вычислений (CartAmount и др);
 
+Добавление в корзину до оптимизации:
 ![Add to Cart Before](src/shared/assets/gif/ререндер%20при%20клике%20на%20кнопку%20добавления%20до.gif)
 
+Добавление в корзину после оптимизации:
 ![Add to Cart After](src/shared/assets/gif/ререндер%20при%20клике%20на%20кнопку%20добавления%20после.gif)
 
+Добавление в избранное до оптимизации:
 ![List Rerender Before Like](src/shared/assets/gif/ререндер%20списка%20по%20лайку%20до.gif)
 
+Добавление в избранное после оптимизации:
 ![List Rerender After Like](src/shared/assets/gif/ререндер%20списка%20по%20лайку%20после.gif)
 
 ## Задание 3 REACT PORTAL:
@@ -50,8 +54,10 @@
 
 - Сборка vite с SWC;
 
+Сборка vite:
 ![Vite Build](src/shared/assets/images/сборка%20vite.png)
 
+Сборка webpack:
 ![Webpack Build](src/shared/assets/images/сборка%20webpack.png)
 
 ## Задание 6 React 19 Hooks:
