@@ -2,7 +2,6 @@ import './styles/normalize.css';
 import './styles/styles.css';
 import { Outlet } from 'react-router-dom';
 import { Header } from 'src/widgets/Header';
-import { Sort } from 'src/shared/ui/Sort';
 import { Footer } from 'src/widgets/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,7 +10,6 @@ export const App = () => {
 	return (
 		<>
 			<Header />
-			<Sort />
 			<Outlet />
 			<ToastContainer
 				position='top-right'

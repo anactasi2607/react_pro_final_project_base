@@ -16,7 +16,7 @@ export const ProfilePage = WithProtection(() => {
 	};
 
 	return (
-		<>
+		<div>
 			<ButtonBack />
 			<h1 className={s['form__title']}>Мои данные</h1>
 			<form
@@ -77,6 +77,6 @@ export const ProfilePage = WithProtection(() => {
 					Сохранить
 				</Button>
 			</form>
-		</>
+		</div>
 	);
 });

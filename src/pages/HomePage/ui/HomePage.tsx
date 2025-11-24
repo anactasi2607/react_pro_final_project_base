@@ -3,6 +3,7 @@ import { WithQuery } from 'src/app/store/HOCs/WithQuery';
 import { LoadMore } from 'src/shared/ui/LoadMore';
 import { CardList } from 'src/widgets/CardList';
 import { useProducts } from 'src/app/store/hooks/useProducts';
+import { Sort } from 'src/shared/ui/Sort';
 
 const CardListWithQuery = WithQuery(CardList);
 
@@ -10,7 +11,8 @@ export const HomePage = WithProtection(() => {
 	const { products, isLoading, isError, error } = useProducts();
 
 	return (
-		<>
+		<div>
+			<Sort />
 			<CardListWithQuery
 				title='Лакомства'
 				isLoading={isLoading}
@@ -19,6 +21,6 @@ export const HomePage = WithProtection(() => {
 				error={error}
 			/>
 			<LoadMore />
-		</>
+		</div>
 	);
 });
